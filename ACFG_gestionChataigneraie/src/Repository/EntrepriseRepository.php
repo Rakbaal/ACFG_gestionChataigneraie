@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\ENTREPRISE;
+use App\Entity\Entreprise;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method ENTREPRISE|null find($id, $lockMode = null, $lockVersion = null)
- * @method ENTREPRISE|null findOneBy(array $criteria, array $orderBy = null)
- * @method ENTREPRISE[]    findAll()
- * @method ENTREPRISE[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Entreprise|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Entreprise|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Entreprise[]    findAll()
+ * @method Entreprise[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ENTREPRISERepository extends ServiceEntityRepository
+class EntrepriseRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ENTREPRISE::class);
+        parent::__construct($registry, Entreprise::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(ENTREPRISE $entity, bool $flush = true): void
+    public function add(Entreprise $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class ENTREPRISERepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(ENTREPRISE $entity, bool $flush = true): void
+    public function remove(Entreprise $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,7 +46,7 @@ class ENTREPRISERepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return ENTREPRISE[] Returns an array of ENTREPRISE objects
+    //  * @return Entreprise[] Returns an array of Entreprise objects
     //  */
     /*
     public function findByExampleField($value)
@@ -63,7 +63,7 @@ class ENTREPRISERepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ENTREPRISE
+    public function findOneBySomeField($value): ?Entreprise
     {
         return $this->createQueryBuilder('e')
             ->andWhere('e.exampleField = :val')

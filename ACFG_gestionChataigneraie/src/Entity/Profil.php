@@ -2,23 +2,33 @@
 
 namespace App\Entity;
 
-use App\Repository\PROFILRepository;
+use App\Repository\ProfilRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PROFILRepository::class)]
-class PROFIL
+#[ORM\Entity(repositoryClass: ProfilRepository::class)]
+class Profil
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $PRO_ID;
+    private $id;
 
     #[ORM\Column(type: 'string', length: 50)]
     private $PRO_TYPE;
 
-    public function getPROID(): ?int
+    #[ORM\ManyToMany(targetEntity: Personne::class, mappedBy: 'profils')]
+    private $personnes;
+
+    public function __construct()
     {
-        return $this->PRO_ID;
+        $this->personnes = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getPROTYPE(): ?string
@@ -29,6 +39,33 @@ class PROFIL
     public function setPROTYPE(string $PRO_TYPE): self
     {
         $this->PRO_TYPE = $PRO_TYPE;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Personne>
+     */
+    public function getPersonnes(): Collection
+    {
+        return $this->personnes;
+    }
+
+    public function addPersonne(Personne $personne): self
+    {
+        if (!$this->personnes->contains($personne)) {
+            $this->personnes[] = $personne;
+            $personne->addProfil($this);
+        }
+
+        return $this;
+    }
+
+    public function removePersonne(Personne $personne): self
+    {
+        if ($this->personnes->removeElement($personne)) {
+            $personne->removeProfil($this);
+        }
 
         return $this;
     }
