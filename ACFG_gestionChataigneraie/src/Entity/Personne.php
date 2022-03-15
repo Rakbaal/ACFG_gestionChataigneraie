@@ -2,78 +2,78 @@
 
 namespace App\Entity;
 
-use App\Repository\PersonneRepository;
+use App\Repository\PERSONNERepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PersonneRepository::class)]
-class Personne
+#[ORM\Entity(repositoryClass: PERSONNERepository::class)]
+class PERSONNE
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private $PER_ID;
 
     #[ORM\Column(type: 'string', length: 40)]
-    private $PER_Nom;
+    private $PER_NOM;
 
     #[ORM\Column(type: 'string', length: 40)]
-    private $PER_Prenom;
+    private $PER_PRENOM;
 
-    #[ORM\Column(type: 'string', length: 254, nullable: true)]
-    private $PER_Mail;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $PER_EMAIL;
 
-    #[ORM\Column(type: 'string', length: 20, nullable: true)]
-    private $PER_Telephone;
+    #[ORM\Column(type: 'string', length: 10, nullable: true)]
+    private $PER_TEL;
 
-    public function getId(): ?int
+    public function getPERID(): ?int
     {
-        return $this->id;
+        return $this->PER_ID;
     }
 
-    public function getPERNom(): ?string
+    public function getPERNOM(): ?string
     {
-        return $this->PER_Nom;
+        return $this->PER_NOM;
     }
 
-    public function setPERNom(string $PER_Nom): self
+    public function setPERNOM(string $PER_NOM): self
     {
-        $this->PER_Nom = $PER_Nom;
+        $this->PER_NOM = $PER_NOM;
 
         return $this;
     }
 
-    public function getPERPrenom(): ?string
+    public function getPERPRENOM(): ?string
     {
-        return $this->PER_Prenom;
+        return $this->PER_PRENOM;
     }
 
-    public function setPERPrenom(string $PER_Prenom): self
+    public function setPERPRENOM(string $PER_PRENOM): self
     {
-        $this->PER_Prenom = $PER_Prenom;
+        $this->PER_PRENOM = $PER_PRENOM;
 
         return $this;
     }
 
-    public function getPERMail(): ?string
+    public function getPEREMAIL(): ?string
     {
-        return $this->PER_Mail;
+        return $this->PER_EMAIL;
     }
 
-    public function setPERMail(?string $PER_Mail): self
+    public function setPEREMAIL(?string $PER_EMAIL): self
     {
-        $this->PER_Mail = $PER_Mail;
+        $this->PER_EMAIL = $PER_EMAIL;
 
         return $this;
     }
 
-    public function getPERTelephone(): ?string
+    public function getPERTEL(): ?string
     {
-        return $this->PER_Telephone;
+        return $this->PER_TEL;
     }
 
-    public function setPERTelephone(?string $PER_Telephone): self
+    public function setPERTEL(?string $PER_TEL): self
     {
-        $this->PER_Telephone = $PER_Telephone;
+        $this->PER_TEL = $PER_TEL;
 
         return $this;
     }

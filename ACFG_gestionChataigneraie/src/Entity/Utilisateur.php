@@ -2,63 +2,63 @@
 
 namespace App\Entity;
 
-use App\Repository\UtilisateurRepository;
+use App\Repository\UTILISATEURRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
-class Utilisateur
+#[ORM\Entity(repositoryClass: UTILISATEURRepository::class)]
+class UTILISATEUR
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private $UTI_ID;
 
-    #[ORM\Column(type: 'string', length: 40)]
-    private $UTI_Login;
+    #[ORM\Column(type: 'string', length: 50)]
+    private $UTI_LOGIN;
 
-    #[ORM\Column(type: 'string', length: 40)]
-    private $UTI_MotDePasse;
+    #[ORM\Column(type: 'string', length: 50)]
+    private $UTI_MDP;
 
     #[ORM\Column(type: 'boolean')]
-    private $UTI_Admin;
+    private $UTI_ADMIN;
 
-    public function getId(): ?int
+    public function getUTIID(): ?int
     {
-        return $this->id;
+        return $this->UTI_ID;
     }
 
-    public function getUTILogin(): ?string
+    public function getUTILOGIN(): ?string
     {
-        return $this->UTI_Login;
+        return $this->UTI_LOGIN;
     }
 
-    public function setUTILogin(string $UTI_Login): self
+    public function setUTILOGIN(string $UTI_LOGIN): self
     {
-        $this->UTI_Login = $UTI_Login;
+        $this->UTI_LOGIN = $UTI_LOGIN;
 
         return $this;
     }
 
-    public function getUTIMotDePasse(): ?string
+    public function getUTIMDP(): ?string
     {
-        return $this->UTI_MotDePasse;
+        return $this->UTI_MDP;
     }
 
-    public function setUTIMotDePasse(string $UTI_MotDePasse): self
+    public function setUTIMDP(string $UTI_MDP): self
     {
-        $this->UTI_MotDePasse = $UTI_MotDePasse;
+        $this->UTI_MDP = $UTI_MDP;
 
         return $this;
     }
 
-    public function getUTIAdmin(): ?bool
+    public function getUTIADMIN(): ?bool
     {
-        return $this->UTI_Admin;
+        return $this->UTI_ADMIN;
     }
 
-    public function setUTIAdmin(bool $UTI_Admin): self
+    public function setUTIADMIN(bool $UTI_ADMIN): self
     {
-        $this->UTI_Admin = $UTI_Admin;
+        $this->UTI_ADMIN = $UTI_ADMIN;
 
         return $this;
     }

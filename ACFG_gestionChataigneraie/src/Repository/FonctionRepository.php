@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\Fonction;
+use App\Entity\FONCTION;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Fonction|null find($id, $lockMode = null, $lockVersion = null)
- * @method Fonction|null findOneBy(array $criteria, array $orderBy = null)
- * @method Fonction[]    findAll()
- * @method Fonction[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method FONCTION|null find($id, $lockMode = null, $lockVersion = null)
+ * @method FONCTION|null findOneBy(array $criteria, array $orderBy = null)
+ * @method FONCTION[]    findAll()
+ * @method FONCTION[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FonctionRepository extends ServiceEntityRepository
+class FONCTIONRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Fonction::class);
+        parent::__construct($registry, FONCTION::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Fonction $entity, bool $flush = true): void
+    public function add(FONCTION $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class FonctionRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Fonction $entity, bool $flush = true): void
+    public function remove(FONCTION $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,7 +46,7 @@ class FonctionRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Fonction[] Returns an array of Fonction objects
+    //  * @return FONCTION[] Returns an array of FONCTION objects
     //  */
     /*
     public function findByExampleField($value)
@@ -63,7 +63,7 @@ class FonctionRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Fonction
+    public function findOneBySomeField($value): ?FONCTION
     {
         return $this->createQueryBuilder('f')
             ->andWhere('f.exampleField = :val')

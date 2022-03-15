@@ -2,93 +2,93 @@
 
 namespace App\Entity;
 
-use App\Repository\EntrepriseRepository;
+use App\Repository\ENTREPRISERepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: EntrepriseRepository::class)]
-class Entreprise
+#[ORM\Entity(repositoryClass: ENTREPRISERepository::class)]
+class ENTREPRISE
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
-
-    #[ORM\Column(type: 'string', length: 40)]
-    private $ENT_RaisonSociale;
+    private $ENT_ID;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $ENT_Ville;
+    private $ENT_RS;
+
+    #[ORM\Column(type: 'string', length: 50)]
+    private $ENT_VILLE;
 
     #[ORM\Column(type: 'string', length: 42)]
-    private $ENT_Pays;
+    private $ENT_PAYS;
 
-    #[ORM\Column(type: 'string', length: 60)]
-    private $ENT_Adresse;
+    #[ORM\Column(type: 'string', length: 70)]
+    private $ENT_ADRESSE;
 
     #[ORM\Column(type: 'string', length: 5)]
-    private $ENT_CodePostal;
+    private $ENT_CP;
 
-    public function getId(): ?int
+    public function getENTID(): ?int
     {
-        return $this->id;
+        return $this->ENT_ID;
     }
 
-    public function getENTRaisonSociale(): ?string
+    public function getENTRS(): ?string
     {
-        return $this->ENT_RaisonSociale;
+        return $this->ENT_RS;
     }
 
-    public function setENTRaisonSociale(string $ENT_RaisonSociale): self
+    public function setENTRS(string $ENT_RS): self
     {
-        $this->ENT_RaisonSociale = $ENT_RaisonSociale;
+        $this->ENT_RS = $ENT_RS;
 
         return $this;
     }
 
-    public function getENTVille(): ?string
+    public function getENTVILLE(): ?string
     {
-        return $this->ENT_Ville;
+        return $this->ENT_VILLE;
     }
 
-    public function setENTVille(string $ENT_Ville): self
+    public function setENTVILLE(string $ENT_VILLE): self
     {
-        $this->ENT_Ville = $ENT_Ville;
+        $this->ENT_VILLE = $ENT_VILLE;
 
         return $this;
     }
 
-    public function getENTPays(): ?string
+    public function getENTPAYS(): ?string
     {
-        return $this->ENT_Pays;
+        return $this->ENT_PAYS;
     }
 
-    public function setENTPays(string $ENT_Pays): self
+    public function setENTPAYS(string $ENT_PAYS): self
     {
-        $this->ENT_Pays = $ENT_Pays;
+        $this->ENT_PAYS = $ENT_PAYS;
 
         return $this;
     }
 
-    public function getENTAdresse(): ?string
+    public function getENTADRESSE(): ?string
     {
-        return $this->ENT_Adresse;
+        return $this->ENT_ADRESSE;
     }
 
-    public function setENTAdresse(string $ENT_Adresse): self
+    public function setENTADRESSE(string $ENT_ADRESSE): self
     {
-        $this->ENT_Adresse = $ENT_Adresse;
+        $this->ENT_ADRESSE = $ENT_ADRESSE;
 
         return $this;
     }
 
-    public function getENTCodePostal(): ?string
+    public function getENTCP(): ?string
     {
-        return $this->ENT_CodePostal;
+        return $this->ENT_CP;
     }
 
-    public function setENTCodePostal(string $ENT_CodePostal): self
+    public function setENTCP(string $ENT_CP): self
     {
-        $this->ENT_CodePostal = $ENT_CodePostal;
+        $this->ENT_CP = $ENT_CP;
 
         return $this;
     }
