@@ -2,16 +2,18 @@
 
 namespace App\Entity;
 
-use App\Repository\ENTREPRISERepository;
+use App\Repository\EntrepriseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ENTREPRISERepository::class)]
-class ENTREPRISE
+#[ORM\Entity(repositoryClass: EntrepriseRepository::class)]
+class Entreprise
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $ENT_ID;
+    private $id;
 
     #[ORM\Column(type: 'string', length: 50)]
     private $ENT_RS;
@@ -19,7 +21,7 @@ class ENTREPRISE
     #[ORM\Column(type: 'string', length: 50)]
     private $ENT_VILLE;
 
-    #[ORM\Column(type: 'string', length: 42)]
+    #[ORM\Column(type: 'string', length: 50)]
     private $ENT_PAYS;
 
     #[ORM\Column(type: 'string', length: 70)]
@@ -28,9 +30,21 @@ class ENTREPRISE
     #[ORM\Column(type: 'string', length: 5)]
     private $ENT_CP;
 
-    public function getENTID(): ?int
+    #[ORM\ManyToMany(targetEntity: Personne::class, inversedBy: 'entreprises')]
+    private $personnes;
+
+    #[ORM\ManyToMany(targetEntity: Specialite::class, inversedBy: 'entreprises')]
+    private $specialites;
+
+    public function __construct()
     {
-        return $this->ENT_ID;
+        $this->personnes = new ArrayCollection();
+        $this->specialites = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getENTRS(): ?string
@@ -89,6 +103,54 @@ class ENTREPRISE
     public function setENTCP(string $ENT_CP): self
     {
         $this->ENT_CP = $ENT_CP;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Personne>
+     */
+    public function getPersonnes(): Collection
+    {
+        return $this->personnes;
+    }
+
+    public function addPersonne(Personne $personne): self
+    {
+        if (!$this->personnes->contains($personne)) {
+            $this->personnes[] = $personne;
+        }
+
+        return $this;
+    }
+
+    public function removePersonne(Personne $personne): self
+    {
+        $this->personnes->removeElement($personne);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Specialite>
+     */
+    public function getSpecialites(): Collection
+    {
+        return $this->specialites;
+    }
+
+    public function addSpecialite(Specialite $specialite): self
+    {
+        if (!$this->specialites->contains($specialite)) {
+            $this->specialites[] = $specialite;
+        }
+
+        return $this;
+    }
+
+    public function removeSpecialite(Specialite $specialite): self
+    {
+        $this->specialites->removeElement($specialite);
 
         return $this;
     }

@@ -2,16 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\UTILISATEURRepository;
+use App\Repository\UtilisateurRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: UTILISATEURRepository::class)]
-class UTILISATEUR
+#[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
+class Utilisateur
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $UTI_ID;
+    private $id;
 
     #[ORM\Column(type: 'string', length: 50)]
     private $UTI_LOGIN;
@@ -22,9 +22,9 @@ class UTILISATEUR
     #[ORM\Column(type: 'boolean')]
     private $UTI_ADMIN;
 
-    public function getUTIID(): ?int
+    public function getId(): ?int
     {
-        return $this->UTI_ID;
+        return $this->id;
     }
 
     public function getUTILOGIN(): ?string
