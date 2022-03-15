@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\Specialite;
+use App\Entity\SPECIALITE;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Specialite|null find($id, $lockMode = null, $lockVersion = null)
- * @method Specialite|null findOneBy(array $criteria, array $orderBy = null)
- * @method Specialite[]    findAll()
- * @method Specialite[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method SPECIALITE|null find($id, $lockMode = null, $lockVersion = null)
+ * @method SPECIALITE|null findOneBy(array $criteria, array $orderBy = null)
+ * @method SPECIALITE[]    findAll()
+ * @method SPECIALITE[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SpecialiteRepository extends ServiceEntityRepository
+class SPECIALITERepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Specialite::class);
+        parent::__construct($registry, SPECIALITE::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Specialite $entity, bool $flush = true): void
+    public function add(SPECIALITE $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class SpecialiteRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Specialite $entity, bool $flush = true): void
+    public function remove(SPECIALITE $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,7 +46,7 @@ class SpecialiteRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Specialite[] Returns an array of Specialite objects
+    //  * @return SPECIALITE[] Returns an array of SPECIALITE objects
     //  */
     /*
     public function findByExampleField($value)
@@ -63,7 +63,7 @@ class SpecialiteRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Specialite
+    public function findOneBySomeField($value): ?SPECIALITE
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')

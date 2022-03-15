@@ -2,33 +2,33 @@
 
 namespace App\Entity;
 
-use App\Repository\SpecialiteRepository;
+use App\Repository\SPECIALITERepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: SpecialiteRepository::class)]
-class Specialite
+#[ORM\Entity(repositoryClass: SPECIALITERepository::class)]
+class SPECIALITE
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private $SPE_ID;
 
-    #[ORM\Column(type: 'string', length: 40)]
-    private $SPE_Libelle;
+    #[ORM\Column(type: 'string', length: 50)]
+    private $SPE_LIBELLE;
 
-    public function getId(): ?int
+    public function getSPEID(): ?int
     {
-        return $this->id;
+        return $this->SPE_ID;
     }
 
-    public function getSPELibelle(): ?string
+    public function getSPELIBELLE(): ?string
     {
-        return $this->SPE_Libelle;
+        return $this->SPE_LIBELLE;
     }
 
-    public function setSPELibelle(string $SPE_Libelle): self
+    public function setSPELIBELLE(string $SPE_LIBELLE): self
     {
-        $this->SPE_Libelle = $SPE_Libelle;
+        $this->SPE_LIBELLE = $SPE_LIBELLE;
 
         return $this;
     }

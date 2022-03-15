@@ -2,33 +2,33 @@
 
 namespace App\Entity;
 
-use App\Repository\ProfilRepository;
+use App\Repository\PROFILRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ProfilRepository::class)]
-class Profil
+#[ORM\Entity(repositoryClass: PROFILRepository::class)]
+class PROFIL
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private $PRO_ID;
 
-    #[ORM\Column(type: 'string', length: 40)]
-    private $PRO_Libelle;
+    #[ORM\Column(type: 'string', length: 50)]
+    private $PRO_TYPE;
 
-    public function getId(): ?int
+    public function getPROID(): ?int
     {
-        return $this->id;
+        return $this->PRO_ID;
     }
 
-    public function getPROLibelle(): ?string
+    public function getPROTYPE(): ?string
     {
-        return $this->PRO_Libelle;
+        return $this->PRO_TYPE;
     }
 
-    public function setPROLibelle(string $PRO_Libelle): self
+    public function setPROTYPE(string $PRO_TYPE): self
     {
-        $this->PRO_Libelle = $PRO_Libelle;
+        $this->PRO_TYPE = $PRO_TYPE;
 
         return $this;
     }

@@ -2,33 +2,33 @@
 
 namespace App\Entity;
 
-use App\Repository\FonctionRepository;
+use App\Repository\FONCTIONRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: FonctionRepository::class)]
-class Fonction
+#[ORM\Entity(repositoryClass: FONCTIONRepository::class)]
+class FONCTION
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private $FON_ID;
 
-    #[ORM\Column(type: 'string', length: 40)]
-    private $FON_Libelle;
+    #[ORM\Column(type: 'string', length: 50)]
+    private $FON_LIBELLE;
 
-    public function getId(): ?int
+    public function getFONID(): ?int
     {
-        return $this->id;
+        return $this->FON_ID;
     }
 
-    public function getFONLibelle(): ?string
+    public function getFONLIBELLE(): ?string
     {
-        return $this->FON_Libelle;
+        return $this->FON_LIBELLE;
     }
 
-    public function setFONLibelle(string $FON_Libelle): self
+    public function setFONLIBELLE(string $FON_LIBELLE): self
     {
-        $this->FON_Libelle = $FON_Libelle;
+        $this->FON_LIBELLE = $FON_LIBELLE;
 
         return $this;
     }
