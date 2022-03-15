@@ -17,4 +17,4 @@ class MonController extends AbstractController
     }
 }
 
-?>
+?>()
